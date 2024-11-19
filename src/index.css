@@ -1,0 +1,213 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* header section */
+
+:root{
+  --button-Color : royalblue;
+  --text-color : #800080;
+}
+
+
+header{
+  width: 98.7vmax;
+  height: 100vh;
+}
+.main-header{
+  width: 100%;
+  height:90px;
+  background-color: black;
+}
+.header-content{
+  max-width: 1250px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header-logo h1{
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+}
+.ullist{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ullist li{
+  margin: 0  20px;
+  list-style: none;
+}
+.ullist li a{
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+}
+.searchInput{
+  margin: 30px 10px;
+}
+.searchInput input{
+  padding: 10px 20px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  outline: none;
+  border: none;
+}
+.searchInput button{
+  padding: 10px 25px;
+  border: none;
+  outline: none;
+  background-color: var(--button-Color);
+  color: white;
+  cursor: pointer;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  margin-left: 5px;
+}
+
+
+/* section ::content */
+
+.title{
+  text-align: center;
+  margin-top: 20px;
+  color: var(--text-color);
+}
+.cardButton{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+.AllButton button{
+  width: 120px;
+  height: 35px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1px solid black;
+  outline: none;
+  background-color: var(--button-Color);
+  margin: 10px;
+  color: white;
+  font-size: 15px;
+}
+.MultiplesCards{
+  max-width: 1250px;
+  display: grid;
+  margin: auto;
+  margin-top: 80px;
+  grid-template-columns: repeat(4,1fr);
+  place-items: center;
+}
+.newsCards{
+  width: 300px;
+  border-radius: 10px;
+  margin: 5px 0 15px 0;
+  height: 400px;
+  background-color: antiquewhite;
+}
+.newsApiCards img{
+  width:100%;
+  padding: 10px;
+  height: 250px;
+}
+.newsApiCards p {
+  max-width: 400px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 18px;
+  padding: 10px;
+  word-wrap: break-word;
+}
+.newsApiCards h6 {
+  max-width: 400px;
+  word-wrap: break-word;
+  padding: 0 10px;
+  overflow: hidden;
+  cursor: pointer;
+
+  font-size: 18px;
+  font-family: cursive;
+  white-space: nowrap; 
+  text-overflow: ellipsis; 
+}
+.btn button{
+  width: 130px;
+  height: 38px;
+  border-radius: 10px;
+  border: 1px solid black;
+  outline: none;
+  background: var(--button-Color);
+  cursor: pointer;
+  color: white;
+  margin-top: 15px;
+  margin-left: 10px;
+}
+
+
+ @media (max-width:1200px) {
+  .MultiplesCards{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    margin: auto;
+    place-items:center;
+    padding: 0;
+    margin: 0;
+  }
+}
+ @media (max-width:950px) {
+  .MultiplesCards{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    margin: auto;
+    place-items:center;
+    padding: 0;
+    margin: 0;
+  }
+}
+@media (max-width:800px) {
+  /* .MultiplesCards{
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat(1,1fr);
+  } */
+  .newsCards{
+    margin: 0;
+  }
+  .header-logo h1{
+    font-size: 18px;
+  }
+  .searchInput input{
+    padding: 10px 10px;
+  }
+  .searchInput button{
+    padding: 10px 15px;
+  }
+  
+}
+@media(max-width:400px){
+  .searchInput input{
+    padding: 5px 5px;
+  }
+  .searchInput button{
+    padding: 5px 5px;
+  }
+  .ullist li a{
+    font-size: 2vw;
+  }
+} 
+
+
+@media(max-width:690px){
+  .header-logo h1{
+    font-size:2vw;
+  }
+  .ullist li a{
+    font-size: 2vw;
+  }
+}
