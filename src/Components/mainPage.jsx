@@ -6,7 +6,7 @@ function MainPage() {
     const [loading, setloading] = useState(false)
     const [error, seterror] = useState(null)
 
-    const APi_Key = '442c692515c84ac29c0762e84db2a193'
+    const APi_Key = 'https://newsapi.org/v2/everything?q=bitcoin&apiKey=442c692515c84ac29c0762e84db2a193'
 
     const GetData = async (query) => {
         setloading(true);
