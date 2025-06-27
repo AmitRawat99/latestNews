@@ -1,45 +1,44 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 
 function MainPage() {
-    const [GetApi, setGetApi] = useState([])
-    const [searchQuary, setsearchQuary] = useState('')
-    const [loading, setloading] = useState(false)
-    const [error, seterror] = useState(null)
+    const [GetApi, setGetApi] = useState([]);
+    const [searchQuary, setsearchQuary] = useState('');
+    const [loading, setloading] = useState(false);
+    const [error, seterror] = useState(null);
 
-    const APi_Key = 'https://newsapi.org/v2/everything?q=bitcoin&apiKey=442c692515c84ac29c0762e84db2a193'
+    const APi_Key = '442c692515c84ac29c0762e84db2a193'; // ✅ Only the key
 
     const GetData = async (query) => {
         setloading(true);
         seterror(null);
         try {
-            const response = await fetch(`https://newsapi.org/v2/everything?q=${query}&apiKey=${APi_Key}`)
-            const jsonData = await response.json()
-           setGetApi(Array.isArray(jsonData.articles) ? jsonData.articles : []);
-
+            const response = await fetch(`https://newsapi.org/v2/top-headlines?q=${query}&language=en&apiKey=${APi_Key}`);
+            const jsonData = await response.json();
+            setGetApi(Array.isArray(jsonData.articles) ? jsonData.articles : []);
         } catch (error) {
-            seterror('Error fetching data. Please try again later..')
-            console.error('Error fetching data', error)
+            seterror('Error fetching data. Please try again later..');
+            console.error('Error fetching data', error);
         }
-        setloading(false)
-    }
+        setloading(false);
+    };
 
     useEffect(() => {
         GetData('modi');
-    }, [])
+    }, []);
 
     const SearchHandle = (e) => {
-        setsearchQuary(e.target.value)
-    }
+        setsearchQuary(e.target.value);
+    };
 
     const handleSearch = () => {
         if (searchQuary.trim()) {
-            GetData(searchQuary)
+            GetData(searchQuary);
         }
-    }
+    };
 
     const searchHandle = (buttonValue) => {
         GetData(buttonValue);
-    }
+    };
 
     return (
         <div>
@@ -50,8 +49,8 @@ function MainPage() {
                             <h1>Trending News</h1>
                         </div>
                         <ul className='ullist'>
-                            <li><a href="/" onClick={(e) => searchHandle('All News')}>All News</a></li>
-                            <li><a href="/" onClick={(e) => searchHandle('International News')}>International News</a></li>
+                            <li><a href="/" onClick={(e) => { e.preventDefault(); searchHandle('All News'); }}>All News</a></li>
+                            <li><a href="/" onClick={(e) => { e.preventDefault(); searchHandle('International News'); }}>International News</a></li>
                         </ul>
                         <div className="searchInput">
                             <input
@@ -90,7 +89,7 @@ function MainPage() {
                                         alt={item.title}
                                     />
                                     <p>{item.title}</p>
-                                    <h6 onClick={() => window.open(item.url, ('_blank'))}>{item.description}</h6>
+                                    <h6 onClick={() => window.open(item.url, '_blank')}>{item.description}</h6>
                                     <div className="btn">
                                         <button onClick={() => window.open(item.url, '_blank')}>Read More</button>
                                     </div>
@@ -103,7 +102,7 @@ function MainPage() {
                 </div>
             </header>
         </div>
-    )
+    );
 }
 
-export default MainPage
+export default MainPage;
