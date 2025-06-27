@@ -14,7 +14,7 @@ function MainPage() {
         try {
             const response = await fetch(`https://newsapi.org/v2/everything?q=${query}&apiKey=${APi_Key}`)
             const jsonData = await response.json()
-            setGetApi(jsonData.articles)
+           setGetApi(Array.isArray(jsonData.articles) ? jsonData.articles : []);
 
         } catch (error) {
             seterror('Error fetching data. Please try again later..')
